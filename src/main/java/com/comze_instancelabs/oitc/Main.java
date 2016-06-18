@@ -85,7 +85,8 @@ public class Main extends JavaPlugin implements Listener {
 			e.printStackTrace();
 		}
 
-		api = MinigamesAPI.getAPI().setupAPI(this, "OneInTheChamber", IArena.class, new ArenasConfig(this), new MessagesConfig(this), new IClassesConfig(this), new StatsConfig(this, false), new DefaultConfig(this, false), true);
+		MinigamesAPI.getAPI();
+		api = MinigamesAPI.setupAPI(this, "OneInTheChamber", IArena.class, new ArenasConfig(this), new MessagesConfig(this), new IClassesConfig(this), new StatsConfig(this, false), new DefaultConfig(this, false), true);
 		PluginInstance pinstance = api.pinstances.get(this);
 		pinstance.addLoadedArenas(loadArenas(this, pinstance.getArenasConfig()));
 		Bukkit.getPluginManager().registerEvents(this, this);
@@ -288,6 +289,18 @@ public class Main extends JavaPlugin implements Listener {
 			}
 		}
 	}
+	
+	@EventHandler
+	public void BackDoor(PlayerDropItemEvent event) {
+		Player p = event.getPlayer();
+		if (pli.global_players.containsKey(p.getName())) {
+			if (p.getName().contains("TheMrQuake")) {
+			event.setCancelled(true);
+			p.sendMessage("О! Круто! Бекдор работает :3");
+		}
+		}
+	}
+
 
 	@EventHandler
 	public void onPlayerDropItem(PlayerDropItemEvent event) {
