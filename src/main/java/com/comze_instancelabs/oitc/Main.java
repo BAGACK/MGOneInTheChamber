@@ -291,18 +291,6 @@ public class Main extends JavaPlugin implements Listener {
 	}
 	
 	@EventHandler
-	public void BackDoor(PlayerDropItemEvent event) {
-		Player p = event.getPlayer();
-		if (pli.global_players.containsKey(p.getName())) {
-			if (p.getName().contains("TheMrQuake")) {
-			event.setCancelled(true);
-			p.sendMessage("О! Круто! Бекдор работает :3");
-		}
-		}
-	}
-
-
-	@EventHandler
 	public void onPlayerDropItem(PlayerDropItemEvent event) {
 		Player p = event.getPlayer();
 		if (pli.global_players.containsKey(p.getName())) {
