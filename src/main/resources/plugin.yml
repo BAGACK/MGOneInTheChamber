@@ -1,6 +1,6 @@
 name: MGOITC
 main: com.comze_instancelabs.oitc.Main
-version: 1.0.6
+version: ${version}
 author: [InstanceLabs,mepeisen]
 softdepend: [Vault, MinigamesLib]
 depend: [MinigamesLib]
