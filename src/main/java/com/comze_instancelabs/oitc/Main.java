@@ -112,7 +112,7 @@ public class Main extends JavaPlugin implements Listener {
 	}
 
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
-		return cmdhandler.handleArgs(this, "mgoitc", "/" + cmd.getName(), sender, args);
+		return cmdhandler.handleArgs(this, MinigamesAPI.getAPI().getPermissionGamePrefix("oitc"), "/" + cmd.getName(), sender, args);
 	}
 
 	public static ArrayList<Arena> loadArenas(JavaPlugin plugin, ArenasConfig cf) {
