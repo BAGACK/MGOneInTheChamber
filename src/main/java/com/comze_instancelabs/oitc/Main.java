@@ -7,6 +7,7 @@ import java.lang.reflect.Method;
 import java.nio.channels.FileChannel;
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.logging.Level;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -58,7 +59,6 @@ public class Main extends JavaPlugin implements Listener {
 		// Copy over old MGOneInTheChamber configs to MGOITC config folder
 		File f = new File(this.getDataFolder().getParent() + "\\MGOneInTheChamber\\arenas.yml");
 		File f2 = new File(this.getDataFolder() + "\\arenas.yml");
-		System.out.println(f + " " + f2);
 		try {
 			if (f.exists()) {
 				if (!f2.exists()) {
@@ -82,7 +82,7 @@ public class Main extends JavaPlugin implements Listener {
 				}
 			}
 		} catch (Exception e) {
-			e.printStackTrace();
+			MinigamesAPI.getAPI().getLogger().log(Level.WARNING, "exception", e);
 		}
 
 		MinigamesAPI.getAPI();
@@ -95,12 +95,7 @@ public class Main extends JavaPlugin implements Listener {
 		pinstance.setArenaListener(listener);
 		MinigamesAPI.getAPI().registerArenaListenerLater(this, listener);
 		pli = pinstance;
-		try {
-			pinstance.getClass().getMethod("setAchievementGuiEnabled", boolean.class);
-			pinstance.setAchievementGuiEnabled(true);
-		} catch (NoSuchMethodException e) {
-			System.out.println("Update your MinigamesLib to the latest version to use the Achievement Gui.");
-		}
+		pinstance.setAchievementGuiEnabled(true);
 
 		this.getConfig().addDefault("config.kills_to_win", 20);
 
