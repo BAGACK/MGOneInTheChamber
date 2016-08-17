@@ -1,6 +1,7 @@
 package com.comze_instancelabs.oitc;
 
 import java.util.HashMap;
+import java.util.logging.Level;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -29,7 +30,6 @@ public class IArenaScoreboard extends ArenaScoreboard {
 
 	public void updateScoreboard(final IArena arena) {
 		for (String p_ : arena.getAllPlayers()) {
-			System.out.println(p_ + " " + arena.getInternalName() + " " + ascore.containsKey(arena.getName()));
 			Player p = Bukkit.getPlayer(p_);
 			if (!ascore.containsKey(arena.getName())) {
 				ascore.put(arena.getName(), Bukkit.getScoreboardManager().getNewScoreboard());
@@ -76,7 +76,7 @@ public class IArenaScoreboard extends ArenaScoreboard {
 				}
 			} catch (Exception e) {
 				if (MinigamesAPI.debug) {
-					e.printStackTrace();
+					MinigamesAPI.getAPI().getLogger().log(Level.WARNING, "exception", e);
 				}
 			}
 			ascore.remove(arena);
