@@ -31,13 +31,13 @@ public class IArenaScoreboard extends ArenaScoreboard {
 	public void updateScoreboard(final IArena arena) {
 		for (String p_ : arena.getAllPlayers()) {
 			Player p = Bukkit.getPlayer(p_);
-			if (!ascore.containsKey(arena.getName())) {
-				ascore.put(arena.getName(), Bukkit.getScoreboardManager().getNewScoreboard());
+			if (!ascore.containsKey(arena.getInternalName())) {
+				ascore.put(arena.getInternalName(), Bukkit.getScoreboardManager().getNewScoreboard());
 			}
-			if (!aobjective.containsKey(arena.getName())) {
-				aobjective.put(arena.getName(), ascore.get(arena.getName()).registerNewObjective(arena.getName(), "dummy"));
-				aobjective.get(arena.getName()).setDisplaySlot(DisplaySlot.SIDEBAR);
-				aobjective.get(arena.getName()).setDisplayName(MinigamesAPI.getAPI().pinstances.get(plugin).getMessagesConfig().scoreboard_title.replaceAll("<arena>", arena.getName()));
+			if (!aobjective.containsKey(arena.getInternalName())) {
+				aobjective.put(arena.getInternalName(), ascore.get(arena.getInternalName()).registerNewObjective(arena.getInternalName(), "dummy"));
+				aobjective.get(arena.getInternalName()).setDisplaySlot(DisplaySlot.SIDEBAR);
+				aobjective.get(arena.getInternalName()).setDisplayName(MinigamesAPI.getAPI().pinstances.get(plugin).getMessagesConfig().scoreboard_title.replaceAll("<arena>", arena.getDisplayName()));
 			}
 
 			if (!arena.kills.containsKey(p_)) {
@@ -45,16 +45,16 @@ public class IArenaScoreboard extends ArenaScoreboard {
 			}
 			int i = arena.kills.get(p_);
 
-			// ascore.get(arena.getName()).resetScores(p_);
-			// ascore.get(arena.getName()).resetScores(Bukkit.getOfflinePlayer(Integer.toString(arena.kills.get(p_) + " "));
+			// ascore.get(arena.getInternalName()).resetScores(p_);
+			// ascore.get(arena.getInternalName()).resetScores(Bukkit.getOfflinePlayer(Integer.toString(arena.kills.get(p_) + " "));
 
-			aobjective.get(arena.getName()).getScore(Bukkit.getOfflinePlayer(p_)).setScore(i);
+			aobjective.get(arena.getInternalName()).getScore(Bukkit.getOfflinePlayer(p_)).setScore(i);
 		}
 
 		for (String p_ : arena.getAllPlayers()) {
 			Player p = Bukkit.getPlayer(p_);
-			if (ascore.containsKey(arena.getName())) {
-				p.setScoreboard(ascore.get(arena.getName()));
+			if (ascore.containsKey(arena.getInternalName())) {
+				p.setScoreboard(ascore.get(arena.getInternalName()));
 			}
 		}
 
@@ -62,7 +62,7 @@ public class IArenaScoreboard extends ArenaScoreboard {
 
 	@Override
 	public void updateScoreboard(JavaPlugin plugin, final Arena arena) {
-		IArena a = (IArena) MinigamesAPI.getAPI().pinstances.get(plugin).getArenaByName(arena.getName());
+		IArena a = (IArena) MinigamesAPI.getAPI().pinstances.get(plugin).getArenaByName(arena.getInternalName());
 		this.updateScoreboard(a);
 	}
 
