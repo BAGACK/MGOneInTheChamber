@@ -17,6 +17,10 @@
 			<groupId>de.minigameslib.mglib</groupId>
 			<artifactId>MinigamesAPI</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>de.minigameslib.mglib</groupId>
+			<artifactId>MinigamesPlugin</artifactId>
+		</dependency>
 	</dependencies>
 	
 </project>
