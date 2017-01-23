@@ -43,6 +43,7 @@ public class MGOneInTheChamberPlugin extends JavaPlugin
     {
         // TODO check api version
         EnumServiceInterface.instance().registerEnumClass(this, OitcMessages.class);
+        EnumServiceInterface.instance().registerEnumClass(this, OitcArenaTypes.class);
         
         try
         {
