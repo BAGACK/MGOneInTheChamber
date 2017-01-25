@@ -24,18 +24,20 @@
 
 package de.minigames.minigame;
 
+import de.minigameslib.mclib.api.McException;
 import de.minigameslib.mclib.api.locale.LocalizedMessage;
 import de.minigameslib.mclib.api.locale.LocalizedMessageInterface;
 import de.minigameslib.mclib.api.locale.LocalizedMessages;
 import de.minigameslib.mclib.api.locale.MessageComment;
-import de.minigameslib.mgapi.api.arena.ArenaTypeProvider;
+import de.minigameslib.mgapi.api.arena.ClassicSinglePlayerArena;
+import de.minigameslib.mgapi.api.rules.ArenaRuleSetInterface;
 
 /**
  * The OITC standard arena.
  * 
  * @author mepeisen
  */
-public class OitcStandardArena implements ArenaTypeProvider
+public class OitcStandardArena extends ClassicSinglePlayerArena
 {
     
     @Override
@@ -56,6 +58,17 @@ public class OitcStandardArena implements ArenaTypeProvider
         return Messages.Description;
     }
     
+
+    @Override
+    public void configure(ArenaRuleSetInterface ruleSet) throws McException
+    {
+        super.configure(ruleSet);
+//        if (ruleSet.getType() == BasicArenaRuleSets.BasicMatch)
+//        {
+//            // TODO
+//        }
+    }
+
 
     /**
      * Localized messages for OneInTheChamber

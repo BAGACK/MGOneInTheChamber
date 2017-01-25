@@ -28,14 +28,14 @@ import de.minigameslib.mclib.api.locale.LocalizedMessage;
 import de.minigameslib.mclib.api.locale.LocalizedMessageInterface;
 import de.minigameslib.mclib.api.locale.LocalizedMessages;
 import de.minigameslib.mclib.api.locale.MessageComment;
-import de.minigameslib.mgapi.api.arena.ArenaTypeProvider;
+import de.minigameslib.mgapi.api.arena.ClassicTeamArena;
 
 /**
  * The OITC teams arena.
  * 
  * @author mepeisen
  */
-public class OitcTeamsArena implements ArenaTypeProvider
+public class OitcTeamsArena extends ClassicTeamArena
 {
     
     @Override
