@@ -64,13 +64,10 @@ final class Minigame implements MinigameProvider
         return OitcMessages.Description;
     }
 
-    /* (non-Javadoc)
-     * @see de.minigameslib.mgapi.api.MinigameProvider#getHowToPlay()
-     */
     @Override
     public LocalizedMessageInterface getHowToPlay()
     {
-        // TODO Auto-generated method stub
+        // TODO implement how to play for oitc
         return null;
     }
 }

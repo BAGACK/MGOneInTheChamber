@@ -65,7 +65,7 @@ public class OitcStandardArena extends ClassicSinglePlayerArena
         super.configure(ruleSet);
 //        if (ruleSet.getType() == BasicArenaRuleSets.BasicMatch)
 //        {
-//            // TODO
+//            // TODO preconfigure oitc
 //        }
     }
 
