@@ -41,7 +41,10 @@ public class MGOneInTheChamberPlugin extends JavaPlugin
     @Override
     public void onEnable()
     {
-        // TODO check api version
+        if (MinigamesLibInterface.instance().getApiVersion() >= MinigamesLibInterface.APIVERSION_2_0_0)
+        {
+            throw new IllegalStateException("Incompatible MinigamesLib found."); //$NON-NLS-1$
+        }
         EnumServiceInterface.instance().registerEnumClass(this, OitcMessages.class);
         EnumServiceInterface.instance().registerEnumClass(this, OitcArenaTypes.class);
         
