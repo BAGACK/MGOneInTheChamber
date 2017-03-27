@@ -24,6 +24,8 @@
 
 package de.minigames.minigame;
 
+import java.util.logging.Level;
+
 import org.bukkit.plugin.java.JavaPlugin;
 
 import de.minigameslib.mclib.api.McException;
@@ -54,8 +56,8 @@ public class MGOneInTheChamberPlugin extends JavaPlugin
         }
         catch (McException e)
         {
-            // TODO Logging
-            e.printStackTrace();
+            this.getLogger().log(Level.SEVERE, "Unable to init OITC", e); //$NON-NLS-1$
+            throw new IllegalStateException("Unable to init OITC", e); //$NON-NLS-1$
         }
     }
 
