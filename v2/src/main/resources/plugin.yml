@@ -1,7 +1,0 @@
-name: MGOneInTheChamber
-main: de.minigames.minigame.MGOneInTheChamberPlugin
-version: ${project.version}
-author: [mepeisen]
-softdepend: []
-depend: [MinigamesLib]
-commands:
