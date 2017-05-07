@@ -1,4 +1,4 @@
-MGOneInTheChamber [![Build Status](http://www.minigameslib.de/build.php?app=OneInTheChamber&major=1)](http://www.minigameslib.de/buildref.php?app=OneInTheChamber&major=1)
+MGOneInTheChamber [![Build Status](http://www.minigameslib.de/build.png?app=OneInTheChamber&major=1)](http://www.minigameslib.de/buildref.php?app=OneInTheChamber&major=1)
 =======
 
 OneInTheChamber game for spigot-minecraft using [MinigamesAPI](https://github.com/MysticCity/MinigamesAPI).
