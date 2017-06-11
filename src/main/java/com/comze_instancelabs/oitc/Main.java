@@ -21,10 +21,12 @@ import org.bukkit.entity.Projectile;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
+import org.bukkit.event.block.Action;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.player.PlayerDropItemEvent;
+import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.event.player.PlayerPickupItemEvent;
 import org.bukkit.inventory.ItemStack;
@@ -306,6 +308,17 @@ public class Main extends JavaPlugin implements Listener {
 		final Player p = event.getPlayer();
 		if (pli.global_players.containsKey(p.getName())) {
 			event.setCancelled(true);
+		}
+	}
+
+	@EventHandler
+	public void onCrashCrop(PlayerInteractEvent event) {
+		final Player p = event.getPlayer();
+		if (pli.global_players.containsKey(p.getName())) {
+			if (event.getAction() == Action.PHYSICAL && event.getClickedBlock().getType() == Material.SOIL)
+			{
+				event.setCancelled(true);
+			}
 		}
 	}
 
